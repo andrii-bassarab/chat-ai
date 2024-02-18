@@ -1,0 +1,19 @@
+$document-width: 640px;
+$document-height: 850px;
+
+.document-page {
+  width: 100%;
+  height: calc((100vw - 100px) * 0.98 * 0.6 * 1.25);
+  max-width: $document-width;
+  max-height: $document-height;
+  padding: 35px;
+  font-family: 'Plus Jakarta Sans Semi-Bold';
+  font-size: 14px;
+  line-height: 1.4;
+  background-color: #fff;
+  white-space: pre-line;
+  margin-bottom: 50px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+

@@ -1,0 +1,1 @@
+export const ellipsisString = (text: string, ellipsNumber: number = 100) => text.slice(0, ellipsNumber) + '...'

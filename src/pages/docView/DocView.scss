@@ -1,0 +1,51 @@
+@import '@styles/variables';
+@import '@styles/mixins';
+
+.docView__container {
+  display: flex;
+  justify-content: center;
+  gap: 2%;
+  padding: 0 50px;
+  max-width: 1340px;
+  margin: 0 auto;
+
+  @include respond-to('xs') {
+    padding: 0;
+  }
+
+  &-filesView {
+    width: 80%;
+    max-width: 660px;
+    height: 89vh;
+    padding-top: 35px;
+    overflow-y: scroll;
+
+    @include respond-to('xs') {
+      display: none;
+    }
+  }
+}
+
+.rpv-core__inner-page[role="region"] {
+  background-color: $primary-background-color;
+}
+
+.rpv-core__page-layer--single.rpv-core__page-layer::after {
+  box-shadow: none;
+  background-color: transparent;
+  z-index: -2;
+  border-radius: 20px;
+}
+
+.rpv-core__canvas-layer {
+  border-radius: 8px;
+  background-color: transparent !important;
+}
+
+.rpv-core__inner-page-container:not(:first-child) .rpv-core__canvas-layer {
+  margin-top: 20px;
+}
+
+.rpv-search__highlight {
+  outline: 1px dashed blue;
+}

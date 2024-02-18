@@ -1,0 +1,185 @@
+@import "@/styles/mixins";
+
+.header {
+  width: 100vw;
+  border-bottom: 1px solid #e3e3e3;
+  max-height: 70px;
+
+  @include respond-to('xs') {
+    width: 100%;
+  }
+
+  &_wrapp {
+    display: flex;
+    justify-content: space-between;
+    background-color: #f5f5f5;
+    max-height: 70px;
+
+    // @media (max-width:500px) {
+    //   justify-content: flex-start;
+    // }
+  }
+  &_left {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+  
+    @include respond-to('xs') {
+      height: 43px;
+      padding-left: 16px;
+      gap: 14px;
+      width: auto;
+    }
+  }
+
+  &_right {
+    display: flex;
+    align-items: stretch;
+
+    @include respond-to('xs') {
+      height: 43px;
+      overflow: hidden;
+    }
+  }
+
+  &_figma-logo {
+    padding: 19px 23px 17px;
+    background-color: #2e2e2e;
+
+    @include respond-to('xs') {
+      padding: 19px 14px 17px 0;
+      background-color: transparent;
+      display: flex;
+      align-items: center;
+      justify-self: center;
+      height: 20px;
+    }
+  }
+
+  &_figma-logo-image {
+    width: 21px;
+    height: 31px;
+    cursor: pointer;
+    align-self: center;
+  }
+
+  &_docView {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+    max-height: 70px;
+    flex: 1;
+
+    @include respond-to('xs') {
+      align-items: center;
+    }
+
+    &__title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Plus Jakarta Sans Semi-Bold';
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    &-txt {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: clamp(5px, 5%, 15px);
+      align-self: center;
+      font-family: "Plus Jakarta Sans Semi-Bold";
+      font-size: 14px;
+
+      @include respond-to('sm') {
+        display: none;
+      }
+
+      &__documents {
+        padding: 0;
+        cursor: pointer;
+      }
+    }
+
+    &_navItems {
+      margin-left: 10px;
+      align-self: center;
+      font-family: 'Plus Jakarta Sans Semi-Bold';
+      font-size: 14px;
+
+      @include respond-to('xs') {
+        display: none;
+      }
+    }
+
+    &-icon {
+      padding: 5px;
+      cursor: pointer;
+      width: 15px;
+      height: 16px;
+
+      &-container {
+        border-right: 1px solid #e3e3e3;
+        padding: 0;
+        min-width: 45px;
+        width: 10%;
+        max-width: 65px;
+      }
+
+      @include respond-to('xs') {
+        border: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 15px;
+        height: 16px;
+      }
+    }
+  }
+
+  &_wrapper {
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-end;
+    background-color: #f5f5f5;
+    width: 30%;
+
+    @include respond-to('xs') {
+      width: auto;
+    }
+  }
+
+  &_icon {
+    border-right: 1px solid #e3e3e3;
+    cursor: pointer;
+    max-width: 65px;
+    min-width: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 65px;
+    padding: 0;
+
+    &_img {
+      @include respond-to('xs') {
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+}
+
+.header_nav-element--show-mobile {
+  @include respond-to('xs') {
+    display: block;
+    border: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid #e3e3e3;
+    padding: 15px;
+    width: 45px;
+  }
+}

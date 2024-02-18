@@ -1,0 +1,33 @@
+@import "normalize.css"; 
+@import "../variables/";
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+  
+button {
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+a {
+  font-size: 1em;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  color: $text-primary-color
+}
+
+input {
+  border: none;
+
+  &:hover, &:focus-visible {
+    outline: none;
+  }
+}
+

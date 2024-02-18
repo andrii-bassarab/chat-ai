@@ -1,0 +1,38 @@
+@import '@/styles/mixins';
+
+.header__search-input {
+  line-height: 1.4;
+  flex: 1;
+  padding-left: 15px;
+
+  @include respond-to('xs') {
+    flex: auto;
+    width: 100%;
+  }
+
+  &-cursor {
+    cursor: pointer;
+    padding: 5px;
+  }
+
+  &-label {
+    position: fixed;
+    top: 80px;
+    width: 50%;
+    right: 50px;
+    z-index: 3;
+    border-radius: 10px;
+    line-height: 1.4;
+    padding: 10px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+    @include respond-to('xs') {
+      top: 50px;
+      width: 70%;
+    }
+  }
+}

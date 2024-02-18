@@ -1,0 +1,35 @@
+@import '@styles/mixins';
+
+.conversasions_nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  //max-width: 1363px;
+  margin: 37px auto;
+
+  @include respond-to('xs') {
+    max-width: 95%; // Adjust max-width for smaller screens
+    margin: 5px auto;
+  }
+
+  &-title {
+    font-size: 24px;
+    font-family: 'Plus Jakarta Sans Bold';
+    margin-left: 50px;
+
+    @include respond-to('xs') {
+      margin-left: 0px;
+      font-size: 16px;
+    }
+  }
+  &-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 20px;
+
+    &-icon {
+      margin: 0 12px 0 19px;
+    }
+  }
+}

@@ -1,0 +1,47 @@
+@import "@/styles/fonts/index.scss";
+
+.home-page {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    &__figma-logo {
+        width: 48px;
+        height: 71px;
+        margin-bottom: 26px;
+    }
+
+    &__title {
+        font-size: 18px;
+        font-family: 'Plus Jakarta Sans Bold';
+    }
+
+    &__button-container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin: 26px 0;
+        &_center{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+        &_email{
+            padding: 23px 0 26px;
+            text-align: center;
+        }
+    }
+    &__create-account {
+        font-size: 14px;
+        font-family: 'Plus Jakarta Sans Bold';
+
+        &__link {
+            text-decoration: underline;
+            line-height: 1.1;
+            padding: 0;
+        }
+    }
+}

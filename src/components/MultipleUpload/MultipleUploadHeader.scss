@@ -1,0 +1,43 @@
+@import '@/styles/mixins';
+
+.header {
+  border-bottom: 1px solid #e3e3e3;
+
+  &_button {
+    color: #fff;
+    position: relative;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+    background-color: #2e2e2e;
+    font-family: 'Plus Jakarta Sans Semi-Bold';
+    font-size: 14px;
+    width: 140px;
+
+    @include respond-to('xs') {
+      padding: 0;
+      width: 75px;
+    }
+  }
+  &_upload {
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+  }
+}
+
+.show-mobile {
+  @include respond-to('xs') {
+    display: block;
+    border: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    width: 45px;
+
+    &:not(:nth-child(3)) {
+      border-right: 1px solid #e3e3e3;
+    }
+  }
+}

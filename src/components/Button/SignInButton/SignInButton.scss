@@ -1,0 +1,14 @@
+@import "@/styles/variables";
+@import "@/styles/fonts";
+
+.sign-in-button {
+    width: 372px;
+    background-color: $secondary-background-color;
+    font-family: 'Plus Jakarta Sans Bold';
+    font-size: 16px;
+    padding: 20px 0 19px;
+    &--primary {
+        background-color: #2e2e2e;
+        color: $secondary-background-color;
+    }
+}

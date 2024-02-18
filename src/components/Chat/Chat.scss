@@ -1,0 +1,348 @@
+@import '@styles/mixins';
+
+.chat {
+  display: flex;
+  flex-direction: column;
+  height: 87vh;
+  max-width: 500px;
+  width: 90%;
+
+  @include respond-to('xs') {
+    height: calc(100dvh - 43px);
+    width: 100vw;
+    overflow: hidden;
+
+    &--active-keyboard {
+      height: 100vh;
+    }
+  }
+
+  @media screen and (max-width: 300px) {
+    height: 94vh;
+    width: 99vw;
+  }
+
+  &::after {
+    // position: absolute;
+    content: '';
+    pointer-events: none;
+    width: 100%;
+    height: 8%;
+    visibility: hidden;
+    bottom: 0;
+    z-index: 1;
+    background: linear-gradient(0deg, #f5f5f5 41.62%, rgba(245, 245, 245, 0) 100%);
+  }
+
+  &:not(.chat--active-keyboard)::after {
+    position: absolute;
+    height: 20%;
+    visibility: visible;
+    pointer-events: none;
+
+    @include respond-to('xs') {
+      height: 15%;
+    }
+  }
+
+  &__container {
+    height: 100%;
+    overflow-y: scroll;
+    padding: 10px 20px 10px 0;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Plus Jakarta Sans Semi-Bold';
+    font-size: 14px;
+    transition: scroll 0.2s ease-in-out;
+
+    @include respond-to('xs') {
+      padding: 10px 15px;
+    }
+
+    &__timestamp {
+      line-height: 140%;
+      opacity: 0.5;
+      display: flex;
+      margin-bottom: 30px;
+      margin-top: 14px;
+
+      @include respond-to('xs') {
+        font-size: 12px;
+      }
+
+      &.server-message {
+        justify-content: flex-start;
+      }
+
+      &.user-message {
+        justify-content: flex-end;
+      }
+    }
+
+    &__message {
+      margin-bottom: 10px;
+      display: flex;
+      gap: 10px;
+
+      &-container--user {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+      }
+
+      &__typing-text {
+        word-wrap: break-word;
+        white-space: normal;
+      }
+
+      &.server-message {
+        flex-direction: row;
+        justify-content: flex-start;
+      }
+
+      &.user-message {
+        flex-direction: row-reverse;
+      }
+
+      &__imageContainer {
+        width: 11px;
+        height: 11px;
+        padding: 10px;
+        border-radius: 50%;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      &__image {
+        width: 11px;
+        height: 16px;
+      }
+
+      &__textBox--failed.server-textBox {
+        display: flex;
+        align-items: center;
+        gap: 5%;
+        background: linear-gradient(
+          90deg,
+          rgba(222, 133, 79, 0.5) 0%,
+          rgba(235, 87, 36, 0.7) 50%,
+          rgba(156, 3, 3, 0.4) 100%
+        );
+      }
+
+      &__textBox,
+      &__textBoxTyping {
+        position: relative;
+
+        background-color: #fff;
+        max-width: 400px;
+        padding: 20px;
+        height: auto;
+        border-radius: 25px;
+        line-height: 1.4;
+        display: block;
+        word-wrap: break-word;
+        //overflow-wrap: break-word;
+        white-space: normal;
+        font-family: 'Plus Jakarta Sans Semi-Bold';
+        font-size: 16px;
+
+        &.user-textBox {
+          background-color: #838383;
+          color: #fff;
+        }
+
+        &.server-textBox {
+          padding: 23px 50px 19px 20px;
+        }
+
+        @include respond-to('xs') {
+          max-width: 300px;
+          padding: 14px;
+          font-size: 14px;
+        }
+      }
+
+      &__icon-container {
+        @include respond-to('xs') {
+          font-size: 14px;
+        }
+      }
+
+      &__textBoxTyping {
+        margin-left: 7%;
+
+        @include respond-to('xs') {
+          margin-left: 15%;
+          margin-bottom: 30px;
+        }
+      }
+
+      &__text {
+        max-width: 350px;
+        word-wrap: break-word;
+        font-size: 16px;
+
+        @include respond-to('xs') {
+          font-size: 14px;
+        }
+      }
+
+      &__refresh {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        cursor: pointer;
+      }
+
+      &__copy {
+        cursor: pointer;
+        position: absolute;
+        top: 15px;
+        right: 35px;
+        width: 15px;
+        height: 15px;
+      }
+    }
+  }
+
+  &__input {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: none;
+    background-color: #fff;
+    z-index: 2;
+    border-radius: 42px;
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.05);
+    padding: 0 15px;
+
+    @include respond-to('xs') {
+      border: none;
+      box-shadow: none;
+      border-radius: 0%;
+    }
+
+    // &__prompt {
+    //   position: absolute;
+    //   left: 15px;
+    //   cursor: pointer;
+    // }
+
+    &__prompt {
+      cursor: pointer;
+      padding: 5px;
+      align-self: flex-end;
+      margin-bottom: 10px;
+    }
+
+    &__button {
+      align-self: flex-end;
+      cursor: pointer;
+      background: transparent;
+      padding: 5px;
+      margin-bottom: 6px;
+    }
+
+    &__field {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      line-height: 1.4;
+      resize: none;
+      outline: none;
+      height: 55px;
+      max-height: 155px;
+      transition: height 0.2s ease-in-out;
+
+      @include respond-to('xs') {
+        border: none;
+        box-shadow: none;
+        border-radius: 0%;
+        bottom: 0;
+        height: 44px;
+      }
+      &::placeholder {
+        color: #000;
+      }
+
+      &:focus,
+      :active {
+        border-color: transparent;
+      }
+    }
+  }
+
+  .dots-animation {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    animation: dots 2s steps(4, end) infinite;
+  }
+
+  @keyframes dots {
+    from {
+      content: '';
+    }
+    to {
+      content: '...';
+    }
+  }
+
+  .typing-animation {
+    white-space: pre-line;
+    border-right: 2px solid #000;
+    display: inline;
+    margin-left: 2px;
+    max-width: 400px;
+    max-height: auto;
+    word-wrap: break-word;
+    overflow: hidden; /* Added overflow: hidden to prevent content from overflowing */
+    animation:
+      typing 8s steps(40, end),
+      blink-caret 0.5s step-end infinite;
+  }
+
+  @include respond-to('xs') {
+    .typing-animation {
+      max-width: 300px;
+      // max-height: auto;
+    }
+  }
+
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+
+  @keyframes blink-caret {
+    from,
+    to {
+      border-color: transparent;
+    }
+    50% {
+      border-color: #000;
+    }
+  }
+
+  .loading {
+    font-weight: bold;
+    display: inline-block;
+    font-family: monospace;
+    font-size: 30px;
+    clip-path: inset(0 3ch 0 0);
+    animation: l 1s steps(4) infinite;
+  }
+
+  @keyframes l {
+    to {
+      clip-path: inset(0 -1ch 0 0);
+    }
+  }
+}

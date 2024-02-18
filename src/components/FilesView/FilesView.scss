@@ -1,0 +1,83 @@
+@import '@styles/mixins';
+
+$baseFontSize: 16px; // Define a base font size for relative units
+
+.filesview_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Plus Jakarta Sans Bold';
+  
+  //max-width: 1363px;
+  margin: 37px auto;
+  flex-wrap: wrap;
+  gap: 23px;
+  margin-left: 10px;
+
+  @include respond-to('xs') {
+    max-width: 90%; // Adjust max-width for smaller screens
+  }
+
+  // @media (min-width: 1500px) {
+  //   justify-content: center;
+  //   max-width: 1600px;
+  // }
+
+
+
+  &-item {
+    position: relative;
+    width: 100%; // Make each item take 100% width initially
+    max-width: 439px; // Set a maximum width for each item
+    min-width: 280px; // Set a minimum width for each item
+    height: 220px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    cursor: pointer;
+
+
+    &-filePDF,
+    &-fileDOC {
+      position: absolute;
+      bottom: 31%;
+      border-radius: 2px 2px 0px 0px;
+      font-size: 12px;
+      font-weight: 800;
+      padding: 1px 6px;
+    }
+
+    &-filePDF {
+      background: #e5252a;
+      color: white;
+    }
+
+    &-fileDOC {
+      background: #123ad3;
+      color: white;
+    }
+
+    &-title {
+      margin: 11px 0;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 140%; /* 22.4px */
+    }
+
+    &-subtitle {
+      color: #1f2b43;
+      margin-bottom: 15px;
+      font-size: 14px;
+      font-weight: 600;
+      opacity: 0.5;
+      max-width: 370px;
+
+    }
+  }
+}
+
+.loader-container {
+  margin-top: 10%;
+}
